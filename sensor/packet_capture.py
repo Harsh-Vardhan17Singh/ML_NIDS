@@ -215,3 +215,4 @@ class PCAPFlowAggregator:
                     )
 
         return canonical_flows, summary
+

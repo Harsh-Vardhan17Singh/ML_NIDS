@@ -28,3 +28,4 @@ sensitive_port_probe:
     - 1433  # MSSQL
   severity: "low"
   description: "Flags initial inbound connections to administrative or high-risk listening ports."
+

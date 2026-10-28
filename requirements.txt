@@ -18,3 +18,4 @@ sqlalchemy>=2.0.0
 # Testing and verification
 pytest>=7.4.0
 pytest-cov>=4.1.0
+

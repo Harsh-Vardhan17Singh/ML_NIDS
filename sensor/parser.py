@@ -224,3 +224,4 @@ class DefensiveLogParser:
                     raw_preview=preview
                 )
             )
+

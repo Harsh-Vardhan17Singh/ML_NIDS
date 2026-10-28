@@ -125,3 +125,4 @@ class ParsingSummary(BaseModel):
         if self.total_records == 0:
             return 1.0
         return self.accepted_records / self.total_records
+

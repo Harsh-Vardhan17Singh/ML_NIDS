@@ -53,3 +53,4 @@ When reading from authorized `.pcap` files:
 - **Sensor Placement**: Must be deployed at internal tap, SPAN/mirror port, or host interface with explicit written authorization.
 - **Invisibility**: Traffic not traversing the sensor interface cannot be inspected or detected.
 - **Dropped Packets**: Sensor forwarders must monitor packet drop indicators (`conn.log` history or OS ring buffer drops) and log warnings when buffer exhaustion occurs.
+
