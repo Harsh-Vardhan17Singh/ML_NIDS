@@ -1,0 +1,38 @@
+# Git and local metadata
+.git
+.github
+.gitignore
+*.md
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+dist/
+build/
+venv/
+.venv/
+
+# Node caches
+node_modules/
+frontend/node_modules/
+frontend/dist/
+
+# Large training datasets and raw PCAPs
+dataset/
+data/processed/
+data/sample/captures/
+*.pcap
+*.csv
+*.csv.gz
+
+# Local databases and secrets
+*.db
+*.sqlite3
+.env
+.env.local

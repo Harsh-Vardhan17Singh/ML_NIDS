@@ -1,0 +1,87 @@
+version: '3.8'
+
+# ==============================================================================
+# SentinelNIDS Multi-Container Orchestration
+# Topology:
+#   - web: Nginx reverse proxy & React SPA frontend (port 80)
+#   - api: FastAPI backend detection engine (port 8000 internal, mapped)
+#   - db:  PostgreSQL 16 relational store (isolated on internal bridge network)
+# ==============================================================================
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: sentinel-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-sentinel_nids}
+      POSTGRES_USER: ${POSTGRES_USER:-sentinel_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sentinel_secure_pass_2026}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - sentinel-internal
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-sentinel_user} -d ${POSTGRES_DB:-sentinel_nids}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: sentinel-backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      APP_ENV: ${APP_ENV:-production}
+      DATABASE_URL: postgresql://${POSTGRES_USER:-sentinel_user}:${POSTGRES_PASSWORD:-sentinel_secure_pass_2026}@db:5432/${POSTGRES_DB:-sentinel_nids}
+      SENSOR_API_KEY: ${SENSOR_API_KEY:-sn-live-tok-alpha-001}
+      ML_MODEL_PATH: /app/ml/artifacts/sentinel_model_v1.joblib
+      FEATURE_SCHEMA_PATH: /app/ml/artifacts/feature_schema.json
+      PREPROCESSOR_PATH: /app/ml/artifacts/preprocessor.joblib
+      LABEL_MAPPINGS_PATH: /app/ml/artifacts/label_mappings.json
+      ALERT_SCORE_THRESHOLD: "0.65"
+    ports:
+      - "8000:8000"
+    networks:
+      - sentinel-internal
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/api/v1/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+  web:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: sentinel-dashboard
+    restart: unless-stopped
+    depends_on:
+      api:
+        condition: service_healthy
+    ports:
+      - "80:80"
+      - "3000:80"
+    networks:
+      - sentinel-internal
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://localhost/ || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+networks:
+  sentinel-internal:
+    driver: bridge
+
+volumes:
+  pgdata:
+    driver: local
