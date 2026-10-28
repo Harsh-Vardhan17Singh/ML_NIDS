@@ -16,7 +16,8 @@ if str(PROJECT_ROOT) not in sys.path:
 
 def run_all_tests() -> int:
     print("=" * 70)
-    print(" Running SentinelNIDS Phase 1 Verification Test Suite")
+    print(" Running SentinelNIDS Comprehensive Verification Test Suite")
+    print(" (Phase 1: Ingestion & Parsing | Phase 2: ML Pipeline | Phase 3: Backend & Rules)")
     print("=" * 70)
 
     loader = unittest.TestLoader()
@@ -32,7 +33,7 @@ def run_all_tests() -> int:
     print("=" * 70)
 
     if result.wasSuccessful():
-        print(">>> ALL PHASE 1 TESTS PASSED SUCCESSFULLY! <<<")
+        print(">>> ALL VERIFICATION TESTS PASSED SUCCESSFULLY! <<<")
         return 0
     else:
         print(">>> SOME TESTS FAILED. PLEASE REVIEW OUTPUT ABOVE. <<<")
