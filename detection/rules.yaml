@@ -1,0 +1,30 @@
+# SentinelNIDS Detection Engine Rules Configuration v1.0
+version: "rules-v1"
+
+# Rule: High Connection Rate (burst / volumetric detection)
+connection_rate:
+  enabled: true
+  window_seconds: 60
+  threshold: 100
+  severity: "medium"
+  description: "Triggers when a single source IP initiates more than 100 connections in a 60-second window."
+
+# Rule: Port Scan Detection (horizontal/vertical scan patterns)
+port_scan:
+  enabled: true
+  window_seconds: 60
+  distinct_destination_ports_threshold: 20
+  severity: "high"
+  description: "Triggers when a single source IP contacts 20 or more distinct destination ports within 60 seconds."
+
+# Rule: Known Vulnerable Port Probing
+sensitive_port_probe:
+  enabled: true
+  targeted_ports:
+    - 22    # SSH
+    - 23    # Telnet
+    - 3389  # RDP
+    - 445   # SMB
+    - 1433  # MSSQL
+  severity: "low"
+  description: "Flags initial inbound connections to administrative or high-risk listening ports."
