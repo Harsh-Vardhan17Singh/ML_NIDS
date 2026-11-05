@@ -265,7 +265,6 @@ frontend/
 - **Executive Overview**: High-level KPIs, 24h flow volume, active vs. resolved incident counts, severity breakdown, and recent security findings feed.
 - **Alerts & Investigation Queue**: Filter by severity, review state, or keyword search. Click any alert to open the forensic drawer.
 - **Forensic Drilldown Modal**: Inspect root causes (ML score vs. rule ID), analyze individual flow telemetry, select disposition status, write notes, and commit audit records.
-- **Sensor Infrastructure**: Monitor connected collectors, throughput, and online status with pulsing health beacons.
 - **Model Card & Metrics**: Review active model metadata (`flow-v1.0.0`), decision threshold (`0.65`), and confusion matrices.
 
 ---
