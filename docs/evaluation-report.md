@@ -41,7 +41,7 @@ This report provides the formal experimental evaluation of both the offline mach
 
 ### 2.2 Rigorous Preprocessing & Cleaning
 To eliminate systemic benchmark artifacts that distort classification:
-1. **Trailing Empty Lines:** Dropped 288,602 trailing null rows in `Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv` (lines 170,367 to 458,968).
+1. **Trailing Empty Lines:** Dropped 288,602 trailing null rows in `Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv` .
 2. **Duplicate Records:** Removed 203 identical flow records occurring across capture days.
 3. **Infinite / NaN Handling:** Clamped infinite rates (`Flow Bytes/s`, `Flow Packets/s`) caused by zero-duration flows to the 99.9th percentile value, followed by median imputation.
 4. **Zero-Variance Removal:** Eliminated 8 columns invariant across all 8 capture files (`Bwd Avg Bulk Rate`, `Bwd Avg Bytes/Bulk`, `Bwd Avg Packets/Bulk`, `Bwd PSH Flags`, `Bwd URG Flags`, `Fwd Avg Bulk Rate`, `Fwd Avg Bytes/Bulk`, `Fwd Avg Packets/Bulk`).
