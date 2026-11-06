@@ -3,7 +3,7 @@
 **Document Version:** 1.1.0  
 **Evaluation Date:** October–November 2026  
 **Status:** Defended Academic & Production Benchmark  
-**Authors:** Harsh Vardhan Singh & Siddhi Sharma  
+**Authors:** Harsh Vardhan Singh & Sumit Soni & Samarth Saxena & Manish & Siddhi Sharma  
 **Repository:** [Harsh-Vardhan17Singh/ML_NIDS](https://github.com/Harsh-Vardhan17Singh/ML_NIDS.git)  
 
 ---
