@@ -139,7 +139,7 @@ sequenceDiagram
 | **Intelligent Alert Deduplication** | Employs composite deduplication keys `(src_ip, rule_id, dst_port)` within a 10-minute sliding window, grouping thousands of packet bursts into clean, traceable incidents. |
 | **Zero Data Leakage** | Preprocessing pipeline fitted strictly on the training partition ($N = 1,981,378$). Validation ($N = 424,581$) and test ($N = 424,581$) partitions transformed using frozen parameters. |
 | **Analyst Review & Audit Trail** | Full lifecycle support (`new` $\to$ `investigating` $\to$ `true_positive` / `false_positive` / `resolved`) with immutable audit logging. |
-| **Production SOC Interface** | React + TypeScript web app featuring dark-mode SOC styling, live KPI cards, search filters, modal forensic inspection, and sensor heartbeat tracking. |
+| **Production SOC Interface** | React + TypeScript web app featuring dark-mode SOC styling, search filters, modal forensic inspection, and sensor heartbeat tracking. |
 
 ---
 
