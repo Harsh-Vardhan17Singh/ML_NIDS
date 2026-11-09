@@ -26,7 +26,7 @@
 
 ## 📌 Executive Summary
 
-**SentinelNIDS** bridges academic machine-learning research and operational cybersecurity engineering. It ingests authorized bidirectional network flow telemetry, validates records against a strict canonical schema, executes dual-engine detection (gradient-boosted probabilistic scoring alongside deterministic stateful rules), suppresses duplicate alerts within sliding temporal windows, and provides security analysts with an authenticated, responsive web dashboard for forensic triage and disposition review.
+**SentinelNIDS** bridges academic machine-learning research and operational cybersecurity engineering. It ingests authorized bidirectional network flow telemetry, validates records against a strict canonical schema, executes dual-engine detection (gradient-boosted probabilistic scoring alongside deterministic stateful rules), suppresses duplicate alerts within sliding temporal windows, and provides security analysts with an authenticated, responsive web dashboard .
 
 ### Core Architectural Principles & Boundaries
 
@@ -139,7 +139,7 @@ sequenceDiagram
 | **Intelligent Alert Deduplication** | Employs composite deduplication keys `(src_ip, rule_id, dst_port)` within a 10-minute sliding window, grouping thousands of packet bursts into clean, traceable incidents. |
 | **Zero Data Leakage** | Preprocessing pipeline fitted strictly on the training partition ($N = 1,981,378$). Validation ($N = 424,581$) and test ($N = 424,581$) partitions transformed using frozen parameters. |
 | **Analyst Review & Audit Trail** | Full lifecycle support (`new` $\to$ `investigating` $\to$ `true_positive` / `false_positive` / `resolved`) with immutable audit logging. |
-| **Production SOC Interface** | React + TypeScript web app featuring dark-mode SOC styling, search filters, modal forensic inspection, and sensor heartbeat tracking. |
+| **Production SOC Interface** | React + TypeScript web app featuring dark-mode SOC styling, search filters, modal forensic inspection, and sensor heartbeat tracking.
 
 ---
 
