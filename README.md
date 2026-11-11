@@ -41,6 +41,10 @@
 ## 🏗️ System Architecture
 
 SentinelNIDS employs a decoupled, modular architecture designed for high throughput, sub-millisecond inference, and transactional persistence.
+Frontend - Manish and Samarth 
+backend engineering by Harsh and Sumit.
+Live Packet Capture by Siddhi Sharma.
+
 
 ### High-Level Topology
 
