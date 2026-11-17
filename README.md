@@ -1,5 +1,7 @@
 # SentinelNIDS — Machine Learning Network Intrusion Detection System
 
+**Authors - Harsh Vardhan Singh , Manish Kumar , Samarth Saxena , Siddhi Sharma , Sumit Soni**
+
 <div align="center">
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
