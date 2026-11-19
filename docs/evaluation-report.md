@@ -194,3 +194,5 @@ To maintain rigorous scientific honesty, SentinelNIDS explicitly defines its ope
 1. **Encrypted Payload Invisibility:** SentinelNIDS analyzes transport and connection metadata only. Application-layer exploits concealed within encrypted TLS sessions (without distinct packet size or timing anomalies) cannot be detected without an active TLS-decrypting proxy.
 2. **Environmental Concept Drift:** Over long periods, new software deployments (e.g., enterprise VPNs, cloud backups) shift background flow distributions. In live deployment, offline accuracy will experience natural decay unless periodic model retraining is performed using the stored analyst feedback records (`analyst_feedback` table).
 3. **Passive-Only Operational Boundary:** SentinelNIDS is intentionally engineered as an out-of-band monitoring system. It never injects TCP resets (`RST`) or modifies firewall tables, ensuring zero risk of disrupting authorized business communication.
+
+Readme File Last Modified on - 19 Nov ( checking the testing and results part)
