@@ -144,7 +144,7 @@ sequenceDiagram
 | **Deterministic Behavioral Rules** | In-memory temporal window detectors for **Connection Bursts** ($>100$ conns/60s), **Port Scans** ($\ge 20$ target ports/60s), and **Administrative Port Probing** (SSH, Telnet, RDP, SMB). |
 | **Intelligent Alert Deduplication** | Employs composite deduplication keys `(src_ip, rule_id, dst_port)` within a 10-minute sliding window, grouping thousands of packet bursts into clean, traceable incidents. |
 | **Zero Data Leakage** | Preprocessing pipeline fitted strictly on the training partition ($N = 1,981,378$). Validation ($N = 424,581$) and test ($N = 424,581$) partitions transformed using frozen parameters. |
-| **Analyst Review & Audit Trail** | Full lifecycle support (`new` $\to$ `investigating` $\to$ `true_positive` / `false_positive` / `resolved`) with immutable audit logging. |
+
 | **Production SOC Interface** | React + TypeScript web app featuring dark-mode SOC styling, search filters, modal forensic inspection, and sensor heartbeat tracking.
 
 ---
